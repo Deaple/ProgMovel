@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:body>
+	<h:head>
+	<!-- adicionar formatacao jquery -->
+	</h:head>	
+</h:body>
+	<pm:page swatch="c" title="#{camadas.titulo}">
+		<pm:header title="#{camadas.nome}"></pm:header>
+		<pm:content>
+			<h:form id="form">
+				<p:accordionPanel>
+					<c:forEach begin="1" end="#{camadas.totalCamadas}" var="n">
+						<p:tab title="#{camadas.getCamada(n).nome}" style="color: blue;">
+							<p:outputPanel style="text-align: center;">
+								<div align="center">
+									<h:outputText  
+									value="Camada: #{camadas.getCamada(n).nome} nº: #{camadas.getCamada(n).numero}"/>
+									<p />
+									
+									<h:outputText 
+									value="Protocolos: #{camadas.getCamada(n).protocolos}"/>
+									<p />
+									
+									<h:outputText value="Tamanho: #{camadas.getCamada(n).tamanhoBytes} bytes"/>
+									<p />	
+									
+									<h:outputText value="Cabeçalhos: #{camadas.getCamada(n).cabecalhos}"/>
+									<p />
+									
+									<h:outputText value="Nome Payload: #{camadas.getCamada(n).payload}"/>
+									<p />
+									
+									<h:outputText value="Definição: #{camadas.getCamada(n).resumoFuncao}"/>
+									<p />
+									
+									<p:graphicImage value="/imgs/#{n}.png" width="300" height="300"/>
+								</div>
+							
+							</p:outputPanel>
+							
+						</p:tab>
+					</c:forEach>
+					
+				</p:accordionPanel>
+				
+			</h:form>
+		</pm:content>
+	</pm:page>
+</html>
