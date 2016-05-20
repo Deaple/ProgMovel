@@ -11,6 +11,7 @@ import br.edu.ifba.wmobile.camadasosi.*;
 
 @ManagedBean(name="camadas")
 public class Camadas {
+	private Usuario usuario = new Usuario();
 	
 	private static List<ICamada> camadas = new ArrayList<ICamada>();
 	
@@ -29,6 +30,12 @@ public class Camadas {
 		camadas.add(camadaOSI);
 		camadaOSI = new Fisica(camadaOSI);
 		camadas.add(camadaOSI);
+	}
+	public void setEmailUsuario(String email){
+		if(email!=null){
+			usuario.setEmail(email);
+			System.out.println("Usuário: "+usuario.getEmail()+" acessou a aplicação.");
+		}
 	}
 	
 	public String getTitulo(){

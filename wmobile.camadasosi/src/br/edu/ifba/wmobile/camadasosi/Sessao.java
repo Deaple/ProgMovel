@@ -25,7 +25,8 @@ public class Sessao implements ICamada{
 		List<String> protocolos = new ArrayList<String>();
 		protocolos.add("NetBIOS");
 		protocolos.add("MTU");
-		protocolos.add("");
+		protocolos.add("PPTP");
+		protocolos.add("SOCKS");
 		return protocolos;
 	}
 

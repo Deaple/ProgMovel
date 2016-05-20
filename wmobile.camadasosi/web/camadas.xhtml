@@ -7,18 +7,17 @@
 	xmlns:pm="http://primefaces.org/mobile">
 
 <f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
 <h:body>
-	<h:head>
-	<!-- adicionar formatacao jquery -->
-	</h:head>	
-</h:body>
-	<pm:page swatch="c" title="#{camadas.titulo}">
-		<pm:header title="#{camadas.nome}"></pm:header>
+	<pm:page id="camadas-osi" swatch="b" title="#{camadas.titulo}">
+		<pm:header title="Aplicação Móvel - #{camadas.nome}"></pm:header>
 		<pm:content>
 			<h:form id="form">
 				<p:accordionPanel>
 					<c:forEach begin="1" end="#{camadas.totalCamadas}" var="n">
-						<p:tab title="#{camadas.getCamada(n).nome}" style="color: blue;">
+						<p:tab title="#{camadas.getCamada(n).nome}">
 							<p:outputPanel style="text-align: center;">
 								<div align="center">
 									<h:outputText  
@@ -41,7 +40,7 @@
 									<h:outputText value="Definição: #{camadas.getCamada(n).resumoFuncao}"/>
 									<p />
 									
-									<p:graphicImage value="/imgs/#{n}.png" width="300" height="300"/>
+									<p:graphicImage value="/imgs/#{camadas.getCamada(n).numero}.png" width="400" height="200"/>
 								</div>
 							
 							</p:outputPanel>
@@ -54,4 +53,5 @@
 			</h:form>
 		</pm:content>
 	</pm:page>
+</h:body>
 </html>
